@@ -1,0 +1,15 @@
+<h1 class='navbar navbar-default col-md-12'>Ur Robotz</h1>
+
+<div class='row well'>
+<% @robots.each do |robot| %>
+  <div class='btn-group' role='group'>
+    <p class='btn btn-default'><a href="/robots/<%= robot.id %>"><%= robot.name %></a><img src="<%= robot.avatar %>"></p>
+    <a class='btn btn-default' href="/robots/<%= robot.id %>/edit">Edit</a>
+  </div>
+
+  <form action="/robots/<%= robot.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete">
+  </form>
+<% end %>
+</div>
