@@ -12,13 +12,19 @@ class RobotWorldTest < Minitest::Test
          :birthdate  => "04/03/1991",
          :date_hired => "04/03/2015",
          :department => "Shredding" })
-        #  require 'pry', binding.pry
     robot = robot_world.all.last
     assert_equal "Patrick", robot.name
   end
 
-  # def test_it_gives_all_robots
-  # robot_world.
-  #
-  # end
+  def test_it_can_find_all_robots
+    create_robots
+
+    all_robots = robot_world.all
+
+    assert_equal Array, all_robots.class
+    assert_equal 2, all_robots.size
+    assert_equal "1name", all_robots.first.name
+  end
+
+  def test_it_can_find_a_specific_robot
 end
