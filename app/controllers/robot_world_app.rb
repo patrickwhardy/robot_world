@@ -1,13 +1,8 @@
-require 'models/robot_world'
+# require 'models/robot_world'
 
 class RobotWorldApp < Sinatra::Base
   set :root, File.expand_path("..", __dir__)
   set :method_override, true
-
-  def robot_world
-    database = YAML::Store.new('db/robot_world')
-    @robot_world ||= RobotWorld.new(database)
-  end
 
   get '/' do
     erb :dashboard
@@ -47,4 +42,14 @@ class RobotWorldApp < Sinatra::Base
     redirect "/robots"
   end
 
+  def robot_world
+    if ENV["RACK_ENV"] == "test"
+      database = Sequel.sqlite('db/robot_world_test.sqlite')
+    else
+      database = Sequel.sqlite('db/robot_world_development.sqlite')
+    end
+    @robot_world ||= RobotWorld.new(database)
+    # database = YAML::Store.new('db/robot_world')
+    # @robot_world ||= RobotWorld.new(database)
+  end
 end
