@@ -7,16 +7,17 @@ class UserCanEditAnExistingRobot < Minitest::Test
   def test_existing_robot_is_updated_with_new_info
     create_robots
 
-    visit '/robots/1/edit'
+    robot = robot_world.all.last
 
-    fill_in 'robot[name]', with: 'new name'
-    fill_in 'robot[birthdate]', with: '11/11/1111'
-    click_button 'submit'
+    visit "/robots/#{robot.id}/edit"
+    fill_in "robot[name]", with: "new name"
+    fill_in "robot[birthdate]", with: "11/11/1111"
+    click_button "submit"
 
-    assert_equal '/robots/1', current_path
+    assert_equal "/robots/#{robot.id}", current_path
 
-    within 'h1' do
-      assert page.has_content? 'new name'
+    within "h1" do
+      assert page.has_content? "new name"
     end
   end
 end

@@ -1,3 +1,5 @@
+require_relative "robot"
+
 class RobotWorld
   attr_reader :database
 
@@ -19,7 +21,7 @@ class RobotWorld
   end
 
   def update(id, robot)
-    database.from(:robots).where(id.to_s).update(
+    database.from(:robots).where(:id => id).update(
       :name       => robot[:name],
       :city       => robot[:city],
       :state      => robot[:state],
@@ -31,7 +33,8 @@ class RobotWorld
   end
 
   def delete(id)
-    database.from(:robots).where(id.to_s).delete
+    # require 'pry';binding.pry
+    database.from(:robots).where(:id => id).delete
   end
 
   def delete_all

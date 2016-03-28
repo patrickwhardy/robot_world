@@ -25,7 +25,6 @@ module TestHelpers
     num.times do |i|
       id = i + 1
       robot_world.create({
-        :id         => id,
         :name       => "#{id}name",
         :city       => "#{id}city",
         :state      => "#{id}state",

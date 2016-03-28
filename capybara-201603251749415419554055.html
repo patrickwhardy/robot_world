@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/application.css">
+  <title>Robot World</title>
+</head>
+<body>
+  <li class='btn btn-default'><a href="/">Home</a></li>
+  <div class="container">
+    <form action="/robots/34" method="post" role="form">
+  <h3>Edit</h3>
+  <input type="hidden" name="_method" value="put">
+  <p>Name: </p><input type="text" name="robot[name]" value="2name" class="form_control"><br>
+  <p>City: </p><input type="text" name="robot[city]" value="2city" class="form_control"><br>
+  <p>State: </p><input type="text" name="robot[state]" value="2state" class="form_control"><br>
+  <p>Avatar: </p><input type="text" name="robot[avatar]" value="https://robohash.org/2" class="form_control"><br>
+  <p>Birthdate: </p><input type="text" name="robot[birthdate]" value="2 04/03/1991" class="form_control"><br>
+  <p>Date Hired: </p><input type="text" name="robot[date_hired]" value="2 04/03/2015" class="form_control"><br>
+  <p>Department: </p><input type="text" name="robot[department]" value="2 department" class="form_control"><br>
+  <input type="submit" class="form_control" value="submit">
+</form>
+
+  </div>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
